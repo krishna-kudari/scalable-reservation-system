@@ -4,6 +4,9 @@ const { authenticate } = require('../middlewares/authMiddleware');
 
 const router = express.Router();
 
+/**
+ * routes for bookings 
+ */
 router.post('/book', authenticate, bookSeat);
 router.get('/details', authenticate, getBookingDetails);
 router.get('/userBookings',authenticate,getUserBookingsDetails);

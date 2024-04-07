@@ -1,5 +1,11 @@
 const { supabase } = require("../config/supabaseClient");
 
+/**
+ * @description teh following function will book a seat for a train if available seats are gte 0.
+ * @param {express request} req coming from client for booking a seat.
+ * @param {express response} res response object that will be sent back.
+ * @returns an object containing booking details if booking successfull.
+ */
 exports.bookSeat = async (req, res) => {
   const { trainId } = req.body;
   const { userId } = req.user;
@@ -45,7 +51,12 @@ exports.bookSeat = async (req, res) => {
   }
 };
 
-
+/**
+ * @description the following function will get all the bookings of a perticular user.
+ * @param {express request} req coming from client for fetching all the bookings details of a user.
+ * @param {express response} res response object that will be sent back.
+ * @returns an array of all the bookings of a user.
+ */
 exports.getUserBookingsDetails = async (req, res) => {
   const { userId } = req.user;
   try {
@@ -62,7 +73,12 @@ exports.getUserBookingsDetails = async (req, res) => {
   }
 };
 
-
+/**
+ * @description the followinf function will fetch the details of a perticular booking.
+ * @param {express request} req coming from client for getting booking details using id.
+ * @param {express response} res response object that will be sent back.
+ * @returns an object containing booking details of the booking with id = bookingId
+ */
 exports.getBookingDetails = async (req, res) => {
   const { bookingId } = req.query;
   console.log(typeof +bookingId);

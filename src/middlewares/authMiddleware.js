@@ -2,6 +2,13 @@ const jwt = require('jsonwebtoken');
 
 const jwtSecret = process.env.JWT_SECRET;
 
+/**
+ * @description the followind middleware validates the Authorization header(Bearer Token).
+ * @param {express request} req coming from client.
+ * @param {express response} res response object that will be sent back.
+ * @param {callback} next function for executing the next operation.
+ * @returns void.
+ */
 exports.authenticate = (req, res, next) => {
   const token = req.headers.authorization?.split(" ")[1]; // Bearer <token>
 
@@ -19,6 +26,11 @@ exports.authenticate = (req, res, next) => {
   }
 };
 
+/**
+ * @description the followind middleware validates the role of the user.
+ * @param {Array of roles allowed for the resource} allowedRoles.
+ * @returns a express middleware function that validates the role of a user for admin routes.
+ */
 exports.authorize = (allowedRoles) => {
   return (req, res, next) => {
     if (!req.user) {
