@@ -84,7 +84,7 @@ The API will be available at `http://localhost:{PORT}`.
 My development style is research -> understand flow -> understand tradeoffs -> approach -> write code -> test -> repeat.
 
 ### How I Approached this task with my little knowledge of scalability ? 
-checkout https://app.eraser.io/workspace/dkZRn70Tj6wbnshCrhXm 
+checkout https://app.eraser.io/workspace/dkZRn70Tj6wbnshCrhXm?origin=share
 
 ## Acknowledgments
 
